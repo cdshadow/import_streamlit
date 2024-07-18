@@ -21,28 +21,3 @@ data = load_data(file_path)
 # 데이터 확인
 st.write("데이터 구조:")
 st.write(data.head())
-st.write(data.info())
-
-# '년도'와 '월' 열이 있는지 확인
-if '년도' in data.columns and '월' in data.columns:
-    # 연도와 월을 합쳐서 'Date' 열을 생성 (day를 1로 설정)
-    data['Date'] = pd.to_datetime(data[['년도', '월']].assign(day=1))
-    
-    # 소계 열을 'Sum'으로 변경
-    data.rename(columns={'소계': 'Sum'}, inplace=True)
-    
-    # Streamlit 대시보드 구성
-    st.title('NAS 데이터를 이용한 Streamlit 대시보드')
-    st.write('데이터 미리보기:')
-    st.write(data.head())
-    
-    # 그래프 그리기
-    fig, ax = plt.subplots(figsize=(10, 5))
-    ax.plot(data['Date'], data['Sum'])
-    ax.set_xlabel('Date')
-    ax.set_ylabel('Sum')
-    ax.set_title('Monthly Sum')
-    
-    st.pyplot(fig)
-else:
-    st.write("데이터에 '년도'와 '월' 열이 포함되어 있지 않습니다.")
