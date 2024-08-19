@@ -20,5 +20,7 @@ data = load_data(file_path)
 
 # 데이터 확인
 st.write("데이터 구조:")
-st.table(data[['시점', '데이터']].reset_index(drop=True))
+# 데이터를 리스트로 변환하여 출력
+st.write(data[['시점', '데이터']].values.tolist())
+#st.table(data[['시점', '데이터']].reset_index(drop=True))
 #st.write(data.head())
