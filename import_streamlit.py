@@ -19,7 +19,7 @@ def load_data(file_path):
 data = load_data(file_path)
 
 # 데이터 확인
-st.write("2001년~2023년 대전시 순이동:")
+st.write("2001년~2023년 대전시 순이동")
 st.table(data[['시점', '데이터']].reset_index(drop=True))
 
 #st.dataframe(data[['시점', '데이터']].reset_index(drop=True))
