@@ -20,4 +20,5 @@ data = load_data(file_path)
 
 # 데이터 확인
 st.write("데이터 구조:")
-st.write(data.head())
+st.table(data.head())
+#st.write(data.head())
