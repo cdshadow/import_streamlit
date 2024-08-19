@@ -20,5 +20,5 @@ data = load_data(file_path)
 
 # 데이터 확인
 st.write("데이터 구조:")
-st.table(data.head())
+st.table(data[['시점', '데이터']].reset_index(drop=True))
 #st.write(data.head())
